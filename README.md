@@ -12,4 +12,6 @@ Make sure you have the following installed:
 3. Run `python3 slackmoji-grabber.py https://slackmojis.com/` and watch the numbers fly!
 4. The files will be downloaded to a folder called 'slackmojis' created where the script is located.
 
+If you're using this to get all the emojis from Slackmoji, I suggest using Neutral Face Emoji Tools to upload all of them to your Slack workspace. You can find the extension [here](https://chrome.google.com/webstore/detail/neutral-face-emoji-tools/anchoacphlfbdomdlomnbbfhcmcdmjej?hl=en) 
+
 I'm open to suggestions & contributions on how to make this better to use!
