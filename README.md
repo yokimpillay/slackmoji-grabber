@@ -4,7 +4,7 @@ A simple Python script to download all emojis from the Slackmoji website (or any
 ## How to use
 
 Make sure you have the following installed:
-- Python 3 (I used this on 3.7.0)
+- Python 3 (I created & used this script on 3.7.0)
 - [beautifulsoup4](https://www.crummy.com/software/BeautifulSoup/bs4/doc/) (Python Package for parsing and pulling data out of HTML/XML documents)
 
 1. Clone the repo
