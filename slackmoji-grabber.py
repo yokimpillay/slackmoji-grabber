@@ -1,15 +1,16 @@
-import sys
-from bs4 import BeautifulSoup
-import requests
 import os
+import sys
+import requests
+
+from bs4 import BeautifulSoup
 
 
 def show_arg():
 
     req = requests.get(sys.argv[1])
-    soup_response = BeautifulSoup(req.text, 'html.parser')
+    soup_response = BeautifulSoup(req.text, "html.parser")
     script_dir = os.path.dirname(os.path.abspath(__file__))
-    dest_dir = os.path.join(script_dir, 'slackmojis')
+    dest_dir = os.path.join(script_dir, "slackmojis")
 
     try:
         os.makedirs(dest_dir)
@@ -17,16 +18,16 @@ def show_arg():
     except OSError:
         pass  # already exists
 
-    for img in soup_response.find_all('img'):
-        src_attr = img.get('src')
+    for img in soup_response.find_all("img"):
+        src_attr = img.get("src")
 
-        if src_attr.find('/'):
-            filename = src_attr.rsplit('/', 1)[1].split('?', 1)[0]
+        if src_attr.find("/"):
+            filename = src_attr.rsplit("/", 1)[1].split("?", 1)[0]
 
-        with open(os.path.join(dest_dir, filename), 'wb') as file:
+        with open(os.path.join(dest_dir, filename), "wb") as file:
             print("Downloading %s" % filename)
             response = requests.get(src_attr, stream=True)
-            file_size = response.headers.get('content-length')
+            file_size = response.headers.get("content-length")
 
             if file_size is None:  # no content length header
                 file.write(response.content)
@@ -37,8 +38,9 @@ def show_arg():
                     dl += len(data)
                     file.write(data)
                     done = int(50 * dl / file_size)
-                    sys.stdout.write("\r[%s%s]" % ('=' * done, ' ' * (50 - done)))
+                    sys.stdout.write("\r[%s%s]" % ("=" * done, " " * (50 - done)))
                     sys.stdout.flush()
 
 
-show_arg()
+if __name__ == "__main__":
+    show_arg()
