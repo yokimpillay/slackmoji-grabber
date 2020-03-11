@@ -1,0 +1,21 @@
+[[source]]
+name = "pypi"
+url = "https://pypi.org/simple"
+verify_ssl = true
+
+[dev-packages]
+isort = "*"
+black = "*"
+
+[packages]
+beautifulsoup4 = "*"
+requests = "*"
+
+[requires]
+python_version = "3.8"
+
+[pipenv]
+allow_prereleases = true
+
+[scripts]
+grab_emojis=["python", "slackmoji-grabber.py", "https://slackmojis.com/"]
